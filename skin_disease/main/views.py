@@ -22,6 +22,31 @@ def convertIMG(testing_img):
 
 
 
+def getPrediction(testing_img):
+    
+    predictions = model.predict(testing_img)
+    a = int(np.argmax(predictions))
+    if a==0:
+        a= "Result: 'akiec', 'Actinic keratoses and intraepithelial carcinomae'"
+    elif a ==1:
+         a= "Result: 'bcc' , ' basal cell carcinoma'"
+    elif a ==2:
+         a= "Result: 'bkl', 'benign keratosis-like lesions'"
+    elif a ==3:
+         a = "Result: 'df', 'dermatofibroma'"
+    elif a ==4:
+         a = "Result: 'nv', ' melanocytic nevi'"
+    elif a ==5:
+         a= "Result: ''vasc', ' pyogenic granulomas and hemorrhage'"
+    elif a ==6:
+         a= "Result: 'mel', 'melanoma'"
+    else:
+        a= "error"
+    return a
+
+
+
+
 def index(request):
     if request.method == "POST" and request.FILES.get('upload'):
         upload = request.FILES["upload"]
