@@ -20,3 +20,19 @@ def convertIMG(testing_img):
         raise ValueError("Image size is not as expected")
     return img_array
 
+
+
+def index(request):
+    if request.method == "POST" and request.FILES.get('upload'):
+        upload = request.FILES["upload"]
+        if not upload:
+            err = 'No image selected'
+            return render(request, 'index.html', {'err': err})
+        fss = FileSystemStorage()       
+        file = fss.save(upload.name, upload)
+        file_url = fss.url(file)
+        disease, medicine_recommendation = getPrediction(os.path.join('media', file))
+        return render(request, 'index.html', {'disease': disease, 'medicine_recommendation': medicine_recommendation, 'file_url': file_url})
+    else:
+        disease, medicine_recommendation = getPrediction()  
+        return render(request, 'index.html', {'disease': disease, 'medicine_recommendation': medicine_recommendation})
