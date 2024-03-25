@@ -23,26 +23,27 @@ def convertIMG(testing_img):
 
 
 def getPrediction(testing_img):
+    img_input = np.expand_dims(convertIMG(testing_img), axis=0)
+    res = np.argmax(model.predict(img_input))
+    classes = ['Actinic Keratoses', 'Basal Cell Carcinoma', 'Benign Keratosis', 'Dermatolibroma', 'Melanacylic Nevi', 'Vascular Skin Lecione', 'Melanoma']  # Assuming you have these classes
     
-    predictions = model.predict(testing_img)
-    a = int(np.argmax(predictions))
-    if a==0:
-        a= "Result: 'akiec', 'Actinic keratoses and intraepithelial carcinomae'"
-    elif a ==1:
-         a= "Result: 'bcc' , ' basal cell carcinoma'"
-    elif a ==2:
-         a= "Result: 'bkl', 'benign keratosis-like lesions'"
-    elif a ==3:
-         a = "Result: 'df', 'dermatofibroma'"
-    elif a ==4:
-         a = "Result: 'nv', ' melanocytic nevi'"
-    elif a ==5:
-         a= "Result: ''vasc', ' pyogenic granulomas and hemorrhage'"
-    elif a ==6:
-         a= "Result: 'mel', 'melanoma'"
-    else:
-        a= "error"
-    return a
+    disease = classes[res]
+    if disease == 'Actinic Keratoses':
+        medicine_recommendation = 'Fluorouracil cream (5-FU), Imiquimod cream'
+    elif disease == 'Basal Cell Carcinoma':
+        medicine_recommendation = 'Imiquimod cream, 5% 5-fluorouracil cream'
+    elif disease == 'Benign Keratosis':
+        medicine_recommendation = 'Topical retinaide, Hydroquinone cream'
+    elif disease == 'Dermatolibroma':
+        medicine_recommendation = 'Topical corticosteroids'
+    elif disease == 'Melanacylic Nevi':
+        medicine_recommendation = 'No specific cream recommended, Kindly visit to the doctor'
+    elif disease == 'Vascular Skin Lecione':
+        medicine_recommendation = 'Topical corticosteroids, Calcineurin inhibitors'
+    elif disease == 'Melanoma':
+        medicine_recommendation = 'Kindly visit to the doctor'
+
+    return disease, medicine_recommendation
 
 
 
