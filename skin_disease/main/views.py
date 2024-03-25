@@ -34,5 +34,4 @@ def index(request):
         disease, medicine_recommendation = getPrediction(os.path.join('media', file))
         return render(request, 'index.html', {'disease': disease, 'medicine_recommendation': medicine_recommendation, 'file_url': file_url})
     else:
-        disease, medicine_recommendation = getPrediction()  
-        return render(request, 'index.html', {'disease': disease, 'medicine_recommendation': medicine_recommendation})
+        return render(request, 'index.html')
