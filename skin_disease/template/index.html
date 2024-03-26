@@ -1,55 +1,34 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skin Detection APP</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <div class="header">
-        <h1><span>Image Prediction Tool</span> with Django</h1>
-      </div>
-  
-      <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input
-          class="custom-file-upload"
-          type="file"
-          accept="image"
-          name="image"
-          id="file"
-        />
-        <button class="compress_image" type="submit" id="submitBtn">
-          Predict Animal
-        </button>
-        <div class="status">
-          <p id="message">{{ message }}</p>
-        </div>
-      </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skin disease Prediction</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <h1>Welcome to Skin Detection</h1>
+    <h1>Please upload the Image File Here</h1>
+    <p>Show a file-select field which allows a file to be chosen for upload:</p>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="upload" accept=".jpg, .jpeg, .png, .jfif" />
+      <input type="submit" value="Submit" />
+    </form>
 
-      <div class="wrapper">
-        <img
-          src="{% if file_url %}{{ file_url }}{% else %}{% static 'images/default.png' %}{% endif %}"
-          alt="Compressed Image"
-          width="400px"
-        />
-  
-        <div class="info_container">
-          <ul>
-            <li>Name: <span class="name">{{ disease }}</span></li>
-            <li>Prediction: <span class="type">{{ disease }}</span></li>
-            <li>Medicine recoomendation: <span class="type">{{ medicine_recommendation }}</span></li>
-          </ul>
-        </div>
-      </div>
-  
-      <div class="header">
-        <h4><span>Tensored </span>Django</h4>
-      </div>
-  
-      <script src="{% static 'js/main.js' %}"></script>
-    </body>
-    
-</html>
+    <br />
+    <br />
+    {% if file_url %}
+    <p>Uploaded Image: <img src="{{ file_url }}" alt="Uploaded Image" /></p>
+    {% endif %}
+    {% if disease %}
+    <p>Predicted Disease: {{ disease }}</p>
+    {% endif %}
+    {% if medicine_recommendation %}
+    <p>Medicine Recommendation: {{ medicine_recommendation }}</p>
+    {% endif %}
+  </body>
+</html> 
+
