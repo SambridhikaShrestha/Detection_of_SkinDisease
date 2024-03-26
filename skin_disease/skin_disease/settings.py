@@ -118,8 +118,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    'var/www/static/',
+    BASE_DIR / "assets",
+    # 'var/www/static/',
 ]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os

@@ -49,15 +49,15 @@ def getPrediction(testing_img):
 
 
 def index(request):
-    if request.method == "POST" and request.FILES.get('upload'):
-        upload = request.FILES["upload"]
-        if not upload:
+    if request.method == "POST" and request.FILES.get('image'):
+        image = request.FILES["image"]
+        if not image:
             err = 'No image selected'
             return render(request, 'index.html', {'err': err})
         fss = FileSystemStorage()       
-        file = fss.save(upload.name, upload)
-        file_url = fss.url(file)
-        disease, medicine_recommendation = getPrediction(os.path.join('media', file))
+        saved_image = fss.save(image.name, image)
+        file_url = fss.url(saved_image)
+        disease, medicine_recommendation = getPrediction(os.path.join('media', saved_image))
         return render(request, 'index.html', {'disease': disease, 'medicine_recommendation': medicine_recommendation, 'file_url': file_url})
     else:
         return render(request, 'index.html')
