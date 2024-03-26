@@ -6,8 +6,14 @@
     <title>Skin Detection APP</title>
 </head>
 <body>
-
-    <h1>Please upload the images</h1>
+    <h1>Welcome to Skin Detection</h1>
+    <h1>Please upload the Image File Here</h1>
+    <p>Show a file-select field which allows a file to be chosen for upload:</p>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="upload" accept=".jpg, .jpeg, .png, .jfif" />
+      <input type="submit" value="Submit" />
+    </form>
     
 </body>
 </html>
