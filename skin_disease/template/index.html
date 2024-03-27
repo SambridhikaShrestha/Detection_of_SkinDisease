@@ -9,26 +9,29 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <h1>Welcome to Skin Detection</h1>
-    <h1>Please upload the Image File Here</h1>
-    <p>Show a file-select field which allows a file to be chosen for upload:</p>
+    <div class="header">
+        <h1>Welcome to Skin Detection</h1>
+    </div>
+    <h2>Please upload the Image File Here</h2>
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <input type="file" name="upload" accept=".jpg, .jpeg, .png, .jfif" />
-      <input type="submit" value="Submit" />
+      <button class="compress_image" type="submit" id="submitBtn">Predict Disease
+      </button>
     </form>
 
-    <br />
-    <br />
-    {% if file_url %}
-    <p>Uploaded Image: <img src="{{ file_url }}" alt="Uploaded Image" /></p>
-    {% endif %}
-    {% if disease %}
-    <p>Predicted Disease: {{ disease }}</p>
-    {% endif %}
-    {% if medicine_recommendation %}
-    <p>Medicine Recommendation: {{ medicine_recommendation }}</p>
-    {% endif %}
+    <div class="wrapper">
+        {% if file_url %}
+        <p>Uploaded Image: <img src="{{ file_url }}" alt="Uploaded Image" /></p>
+        {% endif %}
+        <div class="info_container">
+            {% if disease %}
+            <p>Predicted Disease:<span class="name"> {{ disease }} </span></p>
+            {% endif %}
+            {% if medicine_recommendation %}
+            <p>Medicine Recommendation: <span class="type">{{ medicine_recommendation }} </span></p>
+            {% endif %}
+        </div>
+    </div>
   </body>
 </html> 
-

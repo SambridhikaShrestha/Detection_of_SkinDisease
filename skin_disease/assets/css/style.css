@@ -69,13 +69,19 @@ a {
 
 button {
   padding: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--h4-font-size);
   color: var(--white-color);
   background: var(--main-color);
   border: 0;
   border-radius: 6px;
   cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #04AA6D;
+  color: white;
 }
 
 ul {
@@ -105,12 +111,20 @@ form {
 .header {
   background-size: cover;
   background-position: center;
-  height: 30vh;
+  height: 25vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/dark-cover.png");
+  background-image: url("../images/dark.png");
   color: var(--white-color);
+}
+
+h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 2rem;
 }
 
 .wrapper {
