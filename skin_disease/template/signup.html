@@ -1,26 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Signup Page</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+    <!--Stylesheet-->
+
 </head>
 <body>
-    <h2>Sign Up</h2>
-    <form method="post">
-        {% csrf_token %}
-        <label for="id_username">Username:</label><br>
-        <input type="text" id="id_username" name="username"><br>
-        <label for="id_password">Password:</label><br>
-        <input type="password" id="id_password" name="password"><br>
-        <label for="id_email">Email:</label><br>
-        <input type="email" id="id_email" name="email"><br>
-        <label for="id_name">Name:</label><br>
-        <input type="text" id="id_name" name="name"><br>
-        <label for="id_last_name">Last Name:</label><br>
-        <input type="text" id="id_last_name" name="last_name"><br>
-        <label for="id_age">Age:</label><br>
-        <input type="number" id="id_age" name="age"><br><br>
-        <button type="submit">Sign Up</button>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <h3>Signup Here</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" name="username" id="username">
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email or Phone" name="email" id="email">
+
+        <label for="password1">Password</label>
+        <input type="password" placeholder="Password" id="password1" name="password1">
+
+
+        <label for="password2">Confrom Password</label>
+        <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+        <button type="submit">Signup</button>
+        
+        <a href="{% url 'login' %}" >i have already account</a>
     </form>
 </body>
 </html>
