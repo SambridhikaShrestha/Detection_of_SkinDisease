@@ -15,26 +15,25 @@
 
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+
+        <form method="post" >
+            <!-- <div class="animated fadeInDown"> -->
+            <h3>Login for Skin Detection</h3>
+            {% csrf_token %} 
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" id="username" name="username">
+            
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="pass">
+            
+            <button type="submit">Log In</button>
+            <!-- <input type="button" value=""> -->
+            <!-- <div class="social">
+                <div class="go"><i class="fab fa-google"></i>  Google</div>
+                <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+            </div> -->
+            <a href="{% url 'signup' %}" >Doen't have an account? Create a account</a>
+        </form>
     </div>
-    <form method="post">
-        <h3>Login Here</h3>
-        {% csrf_token %} 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Enter Username" id="username" name="username">
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="pass">
-
-        <button type="submit">Log In</button>
-        <!-- <input type="button" value=""> -->
-        <!-- <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div> -->
-        <a href="{% url 'signup' %}" >Create a account</a>
-    </form>
 </body>
 </html>
