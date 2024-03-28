@@ -1,32 +1,16 @@
-
+/* Common styles */
 *:before,
-*:after{
+*:after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: #1b1c1d;
 }
 
-/* .shape:first-child{
-    background: linear-gradient(
-        #e0e7f5,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-} */
-/* .shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
-} */
-form{
+form {
     height: 380px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
@@ -40,27 +24,31 @@ form{
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
-form *{
-    font-family: 'Poppins',sans-serif;
+
+form * {
+    font-family: 'Poppins', sans-serif;
     color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-form h3{
+
+form h3 {
     font-size: 30px;
     font-weight: 300;
-    line-height: 32px;
+    margin-top: 1px;
+    /* line-height: 32px; */
     text-align: center;
 }
 
-label{
+label {
     display: block;
     margin-top: 20px;
     font-size: 16px;
     font-weight: 500;
 }
-input{
+
+input {
     display: block;
     height: 50px;
     width: 100%;
@@ -71,10 +59,12 @@ input{
     font-size: 14px;
     font-weight: 300;
 }
-::placeholder{
+
+::placeholder {
     color: #e5e5e5;
 }
-button{
+
+button {
     margin-top: 30px;
     width: 100%;
     background-color: #ffffff;
@@ -86,44 +76,29 @@ button{
     cursor: pointer;
 }
 
-a{
+button:hover {
+    background-color: #7e8683;
+    color: white;
+}
+
+a {
     display: block;
     margin-top: 20px;
     text-align: center;
     text-decoration: none;
 }
 
-/* .animated {
-    -webkit-animation-duration: 0.3s;
-    animation-duration: 0.3s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+/* Media Queries for responsiveness */
+@media only screen and (max-width: 600px) {
+    form {
+        width: 50%; /* Adjust width for smaller screens */
+        padding: 35px; /* Adjust padding */
+    }
 }
 
-.fadeInDown {
-    -webkit-animation-name: fadeInDown;
-    animation-name: fadeInDown;
-} */
 
-/* .social{
-  margin-top: 30px;
-  display: flex;
+@media only screen and (max-width: 600px) {
+    a {
+        font-size: 14px; /* Reduce font size */
+    }
 }
-.social div{
-  background: red;
-  width: 150px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
-  text-align: center;
-}
-.social div:hover{
-  background-color: rgba(255,255,255,0.47);
-}
-.social .fb{
-  margin-left: 25px;
-}
-.social i{
-  margin-right: 4px;
-} */
