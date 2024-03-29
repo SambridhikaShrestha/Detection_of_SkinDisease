@@ -121,15 +121,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+import os
+
 STATIC_URL = "static/"
+MEDIA_URL = '/medias/'
+
+# MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
 STATICFILES_DIRS = [
     BASE_DIR / "assets",
-    # 'var/www/static/',
+    #   'var/www/static/',
 ]
+
+MEDIA_ROOT = BASE_DIR / "media"
+STATIC_ROOT = BASE_DIR / "static"
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-import os
-MEDIA_URL = '/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
