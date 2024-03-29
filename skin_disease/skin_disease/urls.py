@@ -28,7 +28,7 @@ urlpatterns = [
     path("detection/", main_views.index, name="index"),
     path('login/', users_views.LoginPage, name='login'),
     path('signup/', users_views.SignupPage, name='signup'),
-    path('home/', users_views.HomePage, name='home'),
+    path('user/', users_views.HomePage, name='home'),
     path('logout/', users_views.LogoutPage, name='logout'),
 ]
 

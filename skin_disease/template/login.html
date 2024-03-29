@@ -16,7 +16,7 @@
 </head>
 <body>
 
-        <form method="post" >
+        <form method="post" autocomplete="off" autocomplete="false">
             <!-- <div class="animated fadeInDown"> -->
             <h3>Login for Skin Detection</h3>
             {% csrf_token %} 
@@ -27,11 +27,6 @@
             <input type="password" placeholder="Password" id="password" name="pass">
             
             <button type="submit">Log In</button>
-            <!-- <input type="button" value=""> -->
-            <!-- <div class="social">
-                <div class="go"><i class="fab fa-google"></i>  Google</div>
-                <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-            </div> -->
             <a href="{% url 'signup' %}" >Doen't have an account? Create a account</a>
         </form>
     </div>
