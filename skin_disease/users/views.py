@@ -7,6 +7,10 @@ from django.contrib.auth.decorators import login_required
 def HomePage(request):
     return render (request,'user.html')
 
+def userhome(request):
+    return render (request,'home.html')
+
+
 def SignupPage(request):
     if request.method=='POST':
         uname=request.POST.get('username')

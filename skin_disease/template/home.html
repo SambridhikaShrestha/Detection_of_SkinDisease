@@ -6,18 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skin Disease Detection</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="#" class="active">Home</a>
-                <a href="#">Detection</a>
-                <a href="#">Log In</a>
-                <a href="#">Sign Up</a>
+        <nav>
+            <div class="wrapper">
+              <div class="logo"><a href="#">Skin Check</a></div>
+              <input type="radio" name="slider" id="menu-btn">
+              <input type="radio" name="slider" id="close-btn">
+              <ul class="nav-links">
+                <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Detection</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign-up</a></li>
+              </ul>
+              <!-- <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label> -->
             </div>
-        </nav>
+          </nav>
     </header>
 
     <main class="main-body">
