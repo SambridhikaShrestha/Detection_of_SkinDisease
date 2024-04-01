@@ -130,7 +130,7 @@ MEDIA_URL = '/medias/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "assets",
-    #   'var/www/static/',
+    # 'var/www/static/',
 ]
 
 MEDIA_ROOT = BASE_DIR / "media"

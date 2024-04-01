@@ -138,7 +138,7 @@ nav input {
 .hero {
     text-align: center;
     padding: 100px 0;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; 
 }
 
 .hero h1 {
@@ -147,7 +147,24 @@ nav input {
 
 .hero p {
     color: #555;
+
 }
+
+
+.container{
+    /* background-image: url("../images/dark.png"); */
+    background-size: cover;
+    background-position: center;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+}
+/* .ima {
+        background-image: url("{% static 'assets/images/mom.png' %}");
+    } */
+    
 
 .how-it-works {
     padding: 50px 0;
