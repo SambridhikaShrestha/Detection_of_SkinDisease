@@ -124,17 +124,50 @@ nav .wrapper {
 
 
 
+.thirdhead{
+    height: 19vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 224, 199);
+    
+}
+
 
 .container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgb(245, 224, 199);
+    
 }
 
-.box {
-    width: 30%;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 20px;
-  }
 
+.box {
+    width: calc(25% - 70px); /* Adjust width to fit 4 boxes with space between */
+    height: 55vh;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-right: 33px; /* Add space between boxes */
+    padding: 10px; /* Reduce padding for smaller box */
+    box-sizing: border-box; /* Include padding in the box size calculation */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+
+
+.box img {
+    width: 100%; /* Make images fill their containers */
+    height: 40vh;
+}
+
+
+.box p{
+    font-size: 17px;
+    text-align: center;
+    margin-top: 5px;
+    padding: 10px;
+}
