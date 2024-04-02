@@ -13,37 +13,27 @@
         <nav>
             <div class="wrapper">
               <div class="logo"><a href="#">Skin Check</a></div>
-              <input type="radio" name="slider" id="menu-btn">
-              <input type="radio" name="slider" id="close-btn">
               <ul class="nav-links">
                 <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Detection</a></li>
                 <li><a href="#">Login</a></li>
-                <li><a href="#">Sign-up</a></li>
+                <!-- <li><a href="#">Sign-up</a></li> -->
               </ul>
               <!-- <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label> -->
             </div>
           </nav>
     </header>
 
-    <main class="main-body">
-        <section class="hero">
-            <div class="container">
-                <h1>Welcome to Skin Disease Detection</h1>
-                <p>Skin Disease Detection is a website that helps you identify skin diseases and provides information on how to treat them.</p>
-                <img src="{% static 'images/mom.png' %}" alt="Skin Disease" width="400" height="300"> 
-            </div>
-                
-        </section>
+    <div class="header">
+        <div class="image-container">
+            <img src="{% static 'images/mom.jpg' %}" alt="Skin Disease">
+        </div>
+        <div class="text">
+            <h1>Welcome to Skin Disease Detection</h1>
+            <p>A website that helps you identify skin diseases and provides information on how to treat them.</p>
+        </div>
+    </div>
 
-        <section class="how-it-works">
-            <div class="container">
-                <h2>How it works</h2>
-                <p>To use our skin disease detection feature, simply upload an image of the affected area and our advanced algorithm will analyze it to determine the most likely skin disease.</p>
-                <p>We also provide a detection log where you can keep track of your past detections for reference or to share with your healthcare provider.</p>
-            </div>
-        </section>
-    </main>
-</body>
-</html>
+
+
