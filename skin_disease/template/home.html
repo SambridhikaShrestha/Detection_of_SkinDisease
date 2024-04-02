@@ -12,12 +12,18 @@
     <header>
         <nav>
             <div class="wrapper">
-              <div class="logo"><a href="#">Skin Checker</a></div>
+              <div class="logo"><a href= "{% url 'home' %}">Skin Checker</a></div>
               <ul class="nav-links">
-                <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Detection</a></li>
-                <li><a href="#">Login</a></li>
+                <li class="dropdown">
+                <a href="{% url 'home' %}" class="dropbtn">Home</a>
+                    <div class="dropdown-content">
+                        <a href="#section1">About Us</a>
+                        <a href="#section2">Top Skin Condition</a>
+                        <a href="#">How It Works</a>
+                    </div>
+                </li>
+                <li><a href="{% url 'index' %}">Detection</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
                 <!-- <li><a href="#">Sign-up</a></li> -->
               </ul>
               <!-- <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label> -->
@@ -25,7 +31,7 @@
           </nav>
     </header>
 
-    <div class="header">
+    <div class="header" >
         <div class="image-container">
             <img src="{% static 'images/mom.jpg' %}" alt="Skin Disease">
         </div>
@@ -38,7 +44,7 @@
 
 
 
-        <div class="second-text">
+        <div class="second-text" id="section1">
             <h1>Get to know Skin-Checker</h1>
 
             <p>Skin-Checker is your gateway to quality skin health information designed to empower everyday people like you. Presented in an engaging and accessible way, we hope you gain a deeper understanding of health concerns and find suitable treatment options for your skin-related issues.<br><br>
@@ -53,7 +59,7 @@
     
 
 
-            <div class="thirdhead">
+            <div class="thirdhead" id="section2">
                  <h1>Top Skin-Condition</h1>
             </div>
             <div class="container">
