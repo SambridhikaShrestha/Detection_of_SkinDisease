@@ -223,7 +223,8 @@ nav .wrapper {
     margin-top: 50px;
     /* padding: 20px; */
     margin-left: 230px;
-    /* background: #000; */
+    font-size: 20px; 
+    
     
 }
 
@@ -247,8 +248,7 @@ nav .wrapper {
     margin-left: 50px;
     padding: 10px; /* Reduce padding for smaller box */
     box-sizing: border-box; /* Include padding in the box size calculation */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    /* background-color: rgb(131, 158, 158);  */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
     
     
 }
@@ -265,4 +265,64 @@ nav .wrapper {
     font-size: 17px;
     text-align: center;
     padding: 5px;
+    text-align: justify;
 }
+
+
+
+
+
+.fifthhead{
+    width: 100%;
+    display: flex;
+    justify-content:left;
+    margin-top: 50px;
+    margin-left: 120px;
+    font-size: 23px; 
+    
+}
+
+
+.cont1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 1px;
+    
+}
+
+
+.b1 {
+    width: calc(20% - 20px); /* Adjust width to fit 4 boxes with space between */
+    height: 64vh;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-right: 23px; /* Add space between boxes */
+    margin-left: 23px;
+    padding: 10px; /* Reduce padding for smaller box */
+    box-sizing: border-box; /* Include padding in the box size calculation */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
+ 
+    
+}
+
+
+
+.b1 img {
+    width: 70%; /* Make images fill their containers */
+    height: 24vh;
+}
+
+
+.b1 p{
+    font-size: 13px;
+    /* text-align: center; */
+    margin-top: 5px;
+    padding: 10px;
+    text-align: justify;
+
+}
+

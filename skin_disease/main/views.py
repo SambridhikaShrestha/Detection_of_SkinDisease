@@ -42,6 +42,8 @@ def getPrediction(testing_img):
         medicine_recommendation = 'Topical corticosteroids, Calcineurin inhibitors'
     elif disease == 'Melanoma':
         medicine_recommendation = 'Kindly visit to the doctor'
+    else:
+        print("Provide the proper image")
 
     return disease, medicine_recommendation
 
