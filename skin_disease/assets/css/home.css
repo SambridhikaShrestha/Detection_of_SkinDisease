@@ -99,3 +99,27 @@ nav .wrapper {
     margin-top: 40px;
 }
 
+
+.second-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.second-text h1 {
+    font-size: 30px;
+    margin-top: 0; /* Remove default margin */
+}
+
+.second-text p {
+    width: 70%;
+    font-size: 16px; /* Adjust size as needed */
+    text-align: justify;
+    margin-top: 40px;
+}
+
+
