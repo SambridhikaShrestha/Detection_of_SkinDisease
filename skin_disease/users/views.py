@@ -1,47 +1,44 @@
-from django.shortcuts import render,HttpResponse,redirect
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from .forms import SignUpForm, LoginForm
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+
 @login_required(login_url='login')
 def HomePage(request):
-    return render (request,'user.html')
+    return render(request, 'user.html')
 
 def userhome(request):
-    return render (request,'home.html')
-
+    return render(request, 'home.html')
 
 def SignupPage(request):
-    if request.method=='POST':
-        uname=request.POST.get('username')
-        email=request.POST.get('email')
-        pass1=request.POST.get('password1')
-        pass2=request.POST.get('password2')
-
-        if pass1!=pass2:
-            return HttpResponse("Your password and confirm password are not Same!!")
-        else:
-
-            my_user=User.objects.create_user(uname,email,pass1)
-            my_user.save()
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been created successfully.')
             return redirect('login')
-        
-
-    return render (request,'signup.html')
-
+        else:
+            messages.error(request, 'There was an error creating your account. Please correct the errors below.')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form, 'messages': messages.get_messages(request)})  # Pass 'messages' context variable
 
 def LoginPage(request):
-    if request.method=='POST':
-        username=request.POST.get('username')
-        pass1=request.POST.get('pass')
-        user=authenticate(request,username=username,password=pass1)
-        if user is not None:
-            login(request,user)
-            return redirect('home')
-        else:
-            return HttpResponse ("Username or Password is incorrect!!!")
-
-    return render (request,'login.html')
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                messages.error(request, 'Invalid username or password.')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form, 'messages': messages.get_messages(request)})  # Pass 'messages' context variable
 
 def LogoutPage(request):
     logout(request)

@@ -1,37 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skin disease Prediction</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
-  <body>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="wrapper">
+                <div class="logo"><a href="{% url 'userhome' %}">Skin Checker</a></div>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="{% url 'userhome' %}" class="dropbtn">Home</a>
+                        <div class="dropdown-content">
+                            <a href= "{% url 'userhome' %}#section1">About Us</a>
+                            <a href="{% url 'userhome' %}#section2">Top Skin Condition</a>
+                            <a href="{% url 'userhome' %}#section3">How It Works</a>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'index' %}">Detection</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <!-- <li><a href="#">Sign-up</a></li> -->
+                </ul>
+                <!-- <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label> -->
+            </div>
+        </nav>
+    </header>
+
     <div class="header">
         <h1>Welcome to Skin Detection</h1>
     </div>
+
     <h2>Please upload the Image File Here</h2>
     <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <input type="file" name="upload" accept=".jpg, .jpeg, .png, .jfif" />
-      <button class="compress_image" type="submit" id="submitBtn">Predict Disease
-      </button>
+        {% csrf_token %}
+        <input type="file" name="upload" accept=".jpg, .jpeg, .png, .jfif" />
+        <button class="compress_image" type="submit" id="submitBtn">Predict Disease</button>
     </form>
 
-    <div class="wrapper">
+    <div class="wrap">
         {% if file_url %}
-        <p>Uploaded Image: <img src="{{ file_url }}" alt="Uploaded Image" /></p>
+        <div class="box">
+            <p>Uploaded Image: <img src="{{ file_url }}" alt="Uploaded Image" /></p>
+        </div>
         {% endif %}
         <div class="info_container">
             {% if disease %}
-            <p>Predicted Disease:<span class="name"> {{ disease }} </span></p>
+                <p>Predicted Disease:<span class="name"> {{ disease }} </span></p>
             {% endif %}
             {% if medicine_recommendation %}
-            <p>Medicine Recommendation: <span class="type">{{ medicine_recommendation }} </span></p>
+                <p>Medicine Recommendation: <span class="type">{{ medicine_recommendation }} </span></p>
             {% endif %}
         </div>
     </div>
-  </body>
-</html> 
+</body>
+</html>

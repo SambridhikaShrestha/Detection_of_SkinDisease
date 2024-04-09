@@ -1,23 +1,167 @@
-<!doctype html>
+{% load static %}
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Detection</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="wrapper">
+              <div class="logo"><a href= "{% url 'userhome' %}">Skin Checker</a></div>
+              <ul class="nav-links">
+                <li class="dropdown">
+                <a href="{% url 'userhome' %}" class="dropbtn">Home</a>
+                    <div class="dropdown-content">
+                        <a href="#section1">About Us</a>
+                        <a href="#section2">Top Skin Condition</a>
+                        <a href="#section3">How It Works</a>
+                    </div>
+                </li>
+                <li><a href="{% url 'index' %}">Detection</a></li>
+                <li><a href="{% url 'logout' %}" class="btn btn-primary">Logout</a></li>
+                <!-- <li><a href="#">Sign-up</a></li> -->
+              </ul>
+              <!-- <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label> -->
+            </div>
+          </nav>
+    </header>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <div class="header" >
+        <div class="image-container">
+            <img src="{% static 'images/mom.jpg' %}" alt="Skin Disease">
+        </div>
+        <div class="text">
+            <h1>Welcome to Skin Disease Detection</h1>
+            <p>A website that helps you identify skin diseases and provides information on how to treat them.</p>
+        </div>
+    </div>
 
-    <title>Home Page</title>
-  </head>
-  <body>
-    <h1>Home Page</h1>
-    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+
+
+        <div class="second-text" id="section1">
+            <h1>Get to know Skin-Checker</h1>
+
+            <p>Skin-Checker is your gateway to quality skin health information designed to empower everyday people like you. Presented in an engaging and accessible way, we hope you gain a deeper understanding of health concerns and find suitable treatment options for your skin-related issues.<br><br>
+
+                Skin-Checker’s user-friendly interface guides you through the search process, making it easy to discover relevant information and make well-informed decisions about your skin health. With our cutting-edge search engine, you can trust the results.<br><br>
+                
+                All content on this website is edited and reviewed by physicians and qualified health professionals and is powered by the team at VisualDx, a trusted software used by clinicians around the world. This guarantees the credibility and accuracy of the information you access through our platform.<br><br>
+                
+                It is important to note that while our content is designed to educate and inform, it should not be seen as a substitute for professional medical advice. Skinsight is here to complement your health journey, not replace medical visits. Your well-being is our priority, and we encourage you to consult with healthcare experts for personalized guidance.</p>
+        </div>
+
+    
+
+
+            <div class="thirdhead" id="section2">
+                 <h1>Top Skin-Condition</h1>
+            </div>
+            <div class="container">
+            <div class="box">
+              <img src="{% static 'images/aklec.jpg' %}" alt="Image aklec">
+              <p>Actinic keratoses and intraepithelial carcinomae</p>
+            </div>
+            <div class="box">
+              <img src="{% static 'images/bcc.jpg' %}" alt="Image bcc">
+              <p>Basal cell carcinoma</p>
+            </div>
+            <div class="box">
+              <img src="{% static 'images/bkl.jpg' %}" alt="Image bkl">
+              <p>Benign keratosis-like lesions</p>
+            </div>
+            <div class="box">
+              <img src="{% static 'images/df.jpg' %}" alt="Image df">
+              <p>Dermatofibroma</p>
+            </div>
+            <div class="box">
+              <img src="{% static 'images/mel.jpg' %}" alt="Image mel">
+              <p>Melanoma</p>
+            </div>
+            <div class="box">
+              <img src="{% static 'images/nv.jpg' %}" alt="Image nv">
+              <p>Melanocytic nevi</p>
+            </div>
+            <div class="box">
+              <img src="{% static 'images/vasc.jpg' %}" alt="Image vasc">
+              <p>Pyogenic granulomas and hemorrhage'</p>
+            </div>
+          </div>
+
+
+        <div class="fourthhead" id="section3">
+            <h2>How Skin-Checker works</h2>
+       </div>
+       <div class="cont">
+       <div class="b">
+            <img src="{% static 'images/howitworks.png' %}" alt="howitworks">
+            <p>Send your photo to Skin Checker. Then the system will analyze most likely skin disease </p>
+       </div>
+       <div class="b">
+            <img src="{% static 'images/saveresult.png' %}" alt="saveresult">
+            <p>Get the result within 60 seconds and related advice on the next steps to take.</p>
+       </div>
+
+
+
+        <div class="fifthhead" id="section4">
+            <h3>Why is Skin-Checker worth using?</h3>
+        </div>
+        <div class="cont1">
+        <div class="b1">
+            <img src="{% static 'images/first.png' %}" alt="first">
+            <p>Skin-Checker is created on the basis of artificial intelligence as a result of joint work of IT specialists and doctors. Our app has the Same accuracy as a professional dermatologist</p>
+        </div>
+        <div class="b1">
+                <img src="{% static 'images/second.png' %}" alt="second">
+                <p>You bring the phone to a mole or other formation on the skin, and in a minute you will know if there is any reason for concern.</p>
+        </div>
+        <div class="b1">
+            <img src="{% static 'images/third.png' %}" alt="third">
+            <p>Skin-Checker is available anytime, anywhere. Keep your health in check at your fingertips even when you are on the go.</p>
+        </div>
+        <div class="b1">
+                <img src="{% static 'images/fourth.png' %}" alt="fourth">
+                <p>Skin-Checker's leading image analytics features come at an unbeatable price, fit for any request or budget. Flexible pricing plans and customizable bundles will save your practice both time and money.</p>
+        </div>
+
+
+        <footer>
+            <div class="wrap">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <h3>About Us</h3>
+                        <p>Skin Checker is a website dedicated to helping individuals identify skin diseases and providing information on treatment options. Our content is reviewed by physicians to ensure accuracy.</p><br>
+                        <div class="contact">
+                            <span><i class="fas fa-phone"></i> +977 9841243212 </span>
+                            <span><i class="fas fa-envelope"></i> info@skinchecker.com</span>
+                        </div>
+                    </div>
+        
+                    <div class="footer-section links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="{% url 'userhome' %}">Home</a></li>
+                            <li><a href="{% url 'index' %}">Detection</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="#section1">About Us</a></li>
+                            <li><a href="#section2">Top Skin Condition</a></li>
+                            <li><a href="#section3">How It Works</a></li>
+                        </ul>
+                    </div>
+        
+                    
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Skin Checker | Designed by Sambridhika Shrestha
+            </div>
+        </footer>
+        
+</body>
 </html>

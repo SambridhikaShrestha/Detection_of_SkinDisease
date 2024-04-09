@@ -2,33 +2,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Design by foolishdeveloper.com -->
     <title>Login Page</title>
- 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <!--Stylesheet-->
-
-
-
 </head>
 <body>
-
-        <form method="post" autocomplete="off" autocomplete="false">
-            <!-- <div class="animated fadeInDown"> -->
-            <h3>Login for Skin Detection</h3>
-            {% csrf_token %} 
-            <label for="username">Username</label>
-            <input type="text" placeholder="Enter Username" id="username" name="username">
-            
-            <label for="password">Password</label>
-            <input type="password" placeholder="Password" id="password" name="pass">
-            
-            <button type="submit">Log In</button>
-            <a href="{% url 'signup' %}" >Doen't have an account? Create a account</a>
-        </form>
-    </div>
+    <form method="post" autocomplete="off" autocomplete="false">
+        <h3>Login for Skin Detection</h3>
+        {% csrf_token %} 
+        {% for message in messages %}
+            <div class="messages">{{ message }}</div>
+        {% endfor %}
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter Username" id="username" name="username" required autocomplete="off">
+        
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="pass" required autocomplete="off">
+        
+        <button type="submit">Log In</button>
+        <a href="{% url 'signup' %}" >Doen't have an account? Create a account</a>
+    </form>
 </body>
 </html>

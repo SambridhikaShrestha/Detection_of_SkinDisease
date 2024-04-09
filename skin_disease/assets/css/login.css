@@ -88,6 +88,17 @@ a {
     text-decoration: none;
 }
 
+
+.messages {
+    margin-top: 20px;
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
 /* Media Queries for responsiveness */
 @media only screen and (max-width: 600px) {
     form {
