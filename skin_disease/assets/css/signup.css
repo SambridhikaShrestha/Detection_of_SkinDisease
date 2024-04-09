@@ -10,8 +10,8 @@ body {
 }
 
 form {
-    max-width: 450px; /* Adjust maximum width */
-    margin: 0 auto; /* Center the form horizontally */
+    max-width: 450px; 
+    margin: 0 auto; 
     background-color: rgba(255, 255, 255, 0.13);
     border-radius: 10px;
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
@@ -29,14 +29,14 @@ form * {
 form h3 {
     font-size: 30px;
     font-weight: 450;
-    line-height: 1.2; /* Adjust line height */
-    margin-bottom: 20px; /* Add margin bottom for spacing */
+    line-height: 1.2; 
+    margin-bottom: 20px; 
     text-align: center;
 }
 
 label {
     display: block;
-    margin-top: 20px; /* Adjust margin top */
+    margin-top: 20px; 
     font-size: 16px;
     font-weight: 400;
 }
@@ -57,7 +57,7 @@ input {
 }
 
 button {
-    margin-top: 20px; /* Adjust margin top */
+    margin-top: 20px; 
     width: 100%;
     background-color: #ffffff;
     color: #080710;

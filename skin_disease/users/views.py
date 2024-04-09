@@ -35,10 +35,10 @@ def LoginPage(request):
                 login(request, user)
                 return redirect('home')
             else:
-                messages.error(request, 'Invalid username or password.')
+                form.add_error(None, 'Invalid username or password.')  # Adding non-field error
     else:
         form = LoginForm()
-    return render(request, 'login.html', {'form': form, 'messages': messages.get_messages(request)})  # Pass 'messages' context variable
+    return render(request, 'login.html', {'form': form})  
 
 def LogoutPage(request):
     logout(request)
