@@ -4,9 +4,11 @@ from PIL import Image
 import numpy as np
 import os
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.decorators import login_required
+
 
 # Load the model
-model = keras.models.load_model('savedModel/model.h5')
+model = keras.models.load_model('savedModel/skinmodel.h5')
 
 
 def convertIMG(testing_img):
@@ -49,8 +51,11 @@ def getPrediction(testing_img):
 
 
 
-
+@login_required(login_url='login')
 def index(request):
+    # if request.user:
+    #     print(request.user.username)
+    # print(request)
     if request.method == "POST" and request.FILES.get('upload'):
         upload = request.FILES["upload"]
         if not upload:

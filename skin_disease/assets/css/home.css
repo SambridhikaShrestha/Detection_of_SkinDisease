@@ -94,13 +94,13 @@ nav .wrapper {
 
 
 .header {
-    position: relative;
+    /* position: relative;  */
     height: 100vh;
-    overflow: hidden; /* Ensure content does not overflow */
+    overflow: hidden;
 }
 
 
-.image-container{
+.image-container img {
     width: 100%;
 }
 

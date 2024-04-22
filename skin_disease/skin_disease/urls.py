@@ -4,6 +4,9 @@ from django.contrib import admin
 from django.urls import path
 from main import views as main_views
 from users import views as users_views
+from rest_framework.authtoken import views as auth_views
+from users.views import UserSerializer
+from rest_framework.authtoken import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -13,6 +16,9 @@ urlpatterns = [
     path('user/', users_views.HomePage, name='home'),
     path('logout/', users_views.LogoutPage, name='logout'),
     path("", users_views.userhome, name="userhome"),
+    path('api-token-auth/', views.obtain_auth_token), 
+    path('register/', users_views.RegisterUser.as_view(), name='register'), 
+
 ]
 
 

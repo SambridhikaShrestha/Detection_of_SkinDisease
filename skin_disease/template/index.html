@@ -12,18 +12,18 @@
     <header>
         <nav>
             <div class="wrapper">
-                <div class="logo"><a href="{% url 'userhome' %}">Skin Checker</a></div>
+                <div class="logo"><a href="{% url 'home' %}">Skin Checker</a></div>
                 <ul class="nav-links">
                     <li class="dropdown">
-                        <a href="{% url 'userhome' %}" class="dropbtn">Home</a>
+                        <a href="{% url 'home' %}" class="dropbtn">Home</a>
                         <div class="dropdown-content">
-                            <a href= "{% url 'userhome' %}#section1">About Us</a>
-                            <a href="{% url 'userhome' %}#section2">Top Skin Condition</a>
-                            <a href="{% url 'userhome' %}#section3">How It Works</a>
+                            <a href= "{% url 'home' %}#section1">About Us</a>
+                            <a href="{% url 'home' %}#section2">Top Skin Condition</a>
+                            <a href="{% url 'home' %}#section3">How It Works</a>
                         </div>
                     </li>
                     <li><a href="{% url 'index' %}">Detection</a></li>
-                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
                     <!-- <li><a href="#">Sign-up</a></li> -->
                 </ul>
                 <!-- <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label> -->
