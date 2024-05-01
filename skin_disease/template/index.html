@@ -48,6 +48,10 @@
             <p>Uploaded Image: <img src="{{ file_url }}" alt="Uploaded Image" /></p>
         </div>
         {% endif %}
+        <!-- {% if err %}
+            <p class="error">{{ err }}</p>
+        {% endif %} -->
+
         <div class="info_container">
             {% if disease %}
                 <p>Predicted Disease:<span class="name"> {{ disease }} </span></p>

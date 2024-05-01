@@ -53,9 +53,6 @@ def getPrediction(testing_img):
 
 @login_required(login_url='login')
 def index(request):
-    # if request.user:
-    #     print(request.user.username)
-    # print(request)
     if request.method == "POST" and request.FILES.get('upload'):
         upload = request.FILES["upload"]
         if not upload:
@@ -67,4 +64,5 @@ def index(request):
         disease, medicine_recommendation = getPrediction(os.path.join('media', file))
         return render(request, 'index.html', {'disease': disease, 'medicine_recommendation': medicine_recommendation, 'file_url': file_url})
     else:
-        return render(request, 'index.html')
+        err = 'No image selected'
+        return render(request, 'index.html', {'err': err})

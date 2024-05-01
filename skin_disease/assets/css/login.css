@@ -82,10 +82,16 @@ button:hover {
 
 a {
     display: block;
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    margin-top: 15px; 
+    /* margin-bottom: 10px;  */
     text-align: center;
     text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: underline;
+    color: rgb(86, 143, 182);
 }
 
 .messages {
