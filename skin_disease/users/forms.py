@@ -21,6 +21,8 @@ class SignUpForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
         if '@' not in email:
             raise forms.ValidationError("Enter a valid email address")
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email is already in use")
         return email
     
     def clean_password2(self):
