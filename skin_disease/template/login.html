@@ -1,4 +1,7 @@
-{% load static %}<!DOCTYPE html>
+<!-- login.html -->
+
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login Page</title>
@@ -6,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
-  
 </head>
 <body>
     <form method="post" autocomplete="off" autocomplete="false">
@@ -16,6 +18,13 @@
             <div class="messages">
                 {% for error in form.non_field_errors %}
                     {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if messages %}
+            <div class="mess">
+                {% for message in messages %}
+                    {{ message }}
                 {% endfor %}
             </div>
         {% endif %}
