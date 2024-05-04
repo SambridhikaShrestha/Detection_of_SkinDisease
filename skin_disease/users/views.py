@@ -12,6 +12,12 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 
+from django.core.mail import send_mail
+import secrets
+from .models import UserProfile
+from django.urls import reverse
+
+
 @login_required(login_url='login')
 
 def HomePage(request):
@@ -43,18 +49,42 @@ class RegisterUser(APIView):
         
         return Response({'status': 200, 'payload': serializer.data, 'token': str(token_obj), 'message': 'Your data is saved'})
 
+
+def verify_email(request, token):
+    profile = UserProfile.objects.filter(verification_token=token).first()
+    if profile:
+        profile.email_verified = True
+        profile.save()
+        messages.success(request, 'Your email has been verified successfully. You can now login.')
+    else:
+        messages.error(request, 'Invalid verification token.')
+    return redirect('login')
+
+
 def SignupPage(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Your account has been created successfully.')
-            return redirect('login')
+            user = form.save(commit=False)
+            user.save()
+            verification_token = secrets.token_hex(20)
+            UserProfile.objects.create(user=user, verification_token=verification_token)
+            send_mail(
+                'Email Verification',
+                f'Click the following link to verify your email: http://127.0.0.1:8000/verify/{verification_token}',
+                'your_email@example.com',
+                [user.email],
+                fail_silently=False,
+            )
+            # Redirect to verification instructions page
+            return redirect('verification_instructions')
         else:
             messages.error(request, 'There was an error creating your account. Please correct the errors below.')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form, 'messages': messages.get_messages(request)})  # Pass 'messages' context variable
+    return render(request, 'signup.html', {'form': form})
+
+
 
 def LoginPage(request):
     if request.method == 'POST':
@@ -64,14 +94,27 @@ def LoginPage(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                login(request, user)
-                return redirect('home')
+                # Check if user has a UserProfile and if the email is verified
+                if hasattr(user, 'userprofile') and user.userprofile.email_verified:
+                    login(request, user)
+                    return redirect('home')
+                else:
+                    # Check if the message has already been added
+                    if not any(message.message == 'Please verify your email to login.' for message in messages.get_messages(request)):
+                        messages.error(request, 'Please verify your email to login.')
+                    return render(request, 'login.html', {'form': form})  # Render login page again with error message
             else:
                 form.add_error(None, 'Invalid username or password.')  # Adding non-field error
     else:
         form = LoginForm()
-    return render(request, 'login.html', {'form': form})  
+    return render(request, 'login.html', {'form': form})
+
+
 
 def LogoutPage(request):
     logout(request)
     return redirect('userhome')
+
+
+def VerificationInstructions(request):
+    return render(request, 'verification_instructions.html')
