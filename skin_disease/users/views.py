@@ -72,7 +72,7 @@ def SignupPage(request):
             send_mail(
                 'Email Verification',
                 f'Click the following link to verify your email: http://127.0.0.1:8000/verify/{verification_token}',
-                'your_email@example.com',
+                'skinchecker15@gmail.com',
                 [user.email],
                 fail_silently=False,
             )
