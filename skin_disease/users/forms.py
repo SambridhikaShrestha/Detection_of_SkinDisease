@@ -9,7 +9,7 @@ class SignUpForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'email', 'password1', 'password2'] 
 
     def clean_password1(self):
         password1 = self.cleaned_data.get('password1')
@@ -34,10 +34,12 @@ class SignUpForm(forms.ModelForm):
 
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)
+        user.email = self.cleaned_data["email"]  # Save the email
         user.set_password(self.cleaned_data["password1"])  # Set password using set_password method
         if commit:
             user.save()
         return user
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username')
