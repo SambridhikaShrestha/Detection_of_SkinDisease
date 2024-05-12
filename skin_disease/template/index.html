@@ -36,11 +36,12 @@
     </div>
 
     <h2>Please upload the Image File Here</h2>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
         {% csrf_token %}
-        <input type="file" name="upload" accept=".jpg, .jpeg, .png, .jfif" />
-        <button class="compress_image" type="submit" id="submitBtn">Predict Disease</button>
+        <input type="file" name="upload" accept="image/*">
+        <button type="submit">Predict Disease</button>
     </form>
+    <div id="error-message" style="color: red; text-align: center; font-weight: bold; font-size: 1.2em;"></div>
 
     <div class="wrap">
         {% if file_url %}
@@ -63,3 +64,14 @@
     </div>
 </body>
 </html>
+
+<script>
+    function validateForm() {
+        var fileInput = document.querySelector('input[type="file"]');
+        if (fileInput.files.length === 0) {
+            document.getElementById("error-message").textContent = "Please choose an image.";
+            return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+    }
+</script>

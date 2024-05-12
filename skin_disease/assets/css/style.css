@@ -277,3 +277,13 @@ h2{
   font-weight: bold;
   margin-bottom: 10px;
 } */
+
+
+#error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
